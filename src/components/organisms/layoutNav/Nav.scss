@@ -1,0 +1,212 @@
+@import '../../../styles/utile';
+
+##{$brand}Gnb {
+  @include flex(0, 0, auto);
+  position: relative;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  width: $navWidth;
+  padding-bottom: 37px;
+  background: #263238;
+  color: $white;
+
+  .head-gnb {
+    display: none;
+    height: $headHeight + 2;
+    background: #1e272c;
+
+    .btn-close {
+      display: block;
+      margin-left: auto;
+      width: $headHeight + 2;
+      height: $headHeight + 2;
+      color: rgba($white, 0.9);
+      outline: 0 none;
+    }
+  }
+
+  .list-gnb {
+    li {
+      position: relative;
+      margin-bottom: 1px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .tit-menu {
+    height: 46px;
+    padding: $gutter * 2 $gutter * 2 $gutter;
+    font-weight: $fontWeightBold;
+    font-size: 11px;
+    color: rgba($white, 0.5);
+
+    i {
+      display: none;
+      text-align: center;
+    }
+  }
+
+  %menu {
+    display: block;
+    position: relative;
+    width: 100%;
+    min-height: 43px;
+    padding: 12px 43px;
+    color: $white;
+    text-align: left;
+    white-space: nowrap;
+    outline: 0 none;
+
+    &:hover {
+      background: rgba($white, 0.1);
+    }
+  }
+
+  .btn-menu {
+    @extend %menu;
+
+    .ico-menu {
+      @include flexbox;
+      @include align-items(center);
+      position: absolute;
+      top: 0;
+      left: 20px;
+      height: 43px;
+      font-size: 11px;
+      color: rgba($white, 0.9);
+    }
+
+    .ico-arr {
+      @include flexbox;
+      @include align-items(center);
+      position: absolute;
+      top: 0;
+      right: 20px;
+      height: 43px;
+      color: $muted;
+    }
+  }
+
+  .link-menu {
+    @extend %menu;
+  }
+
+  .list-menu {
+    display: none;
+    padding: $gutter 0;
+    background: rgba($black, 0.15);
+  }
+
+  .active {
+    > %menu {
+      background: rgba($white, 0.1);
+      font-weight: $fontWeightBold;
+    }
+  }
+
+  .expanded {
+    .btn-menu {
+      background: #26a69a;
+      font-weight: $fontWeightBold;
+
+      .ico-arr {
+        font-weight: $fontWeightRegular;
+        color: $white;
+
+        i {
+          @include transform(rotate(90deg));
+        }
+      }
+    }
+
+    .list-menu {
+      display: block;
+    }
+  }
+}
+
+@media only screen and (min-width: map-get($breakpoints, md) + 1) {
+  .fold {
+    ##{$brand}Gnb {
+      width: auto;
+      padding-bottom: $navWidth;
+
+      .list-gnb {
+        li:hover {
+          .list-menu {
+            display: block;
+          }
+        }
+      }
+
+      .tit-menu {
+        i {
+          display: block;
+        }
+      }
+
+      .btn-menu {
+        padding-right: 8px;
+
+        .ico-arr {
+          display: none;
+        }
+      }
+
+      .link-menu {
+        min-height: auto;
+        padding: $gutter $gutter * 2;
+      }
+
+      .txt-menu {
+        display: none;
+      }
+
+      .list-menu {
+        display: none;
+        position: absolute;
+        top: -$gutter;
+        left: 50px;
+        z-index: 10;
+        width: fit-content;
+        width: $navWidth;
+        border-left: 1px solid rgba($white, 0.1);
+        border-top-right-radius: $borderRadius;
+        border-bottom-right-radius: $borderRadius;
+        background: #304047;
+
+        &:before {
+          display: block;
+          padding: $gutter $gutter * 2;
+          font-weight: $fontWeightBold;
+          font-size: 11px;
+          color: rgba($white, 0.5);
+          content: attr(data-submenu-title);
+        }
+      }
+    }
+  }
+}
+
+@include respond-to(md) {
+  ##{$brand}Gnb {
+    display: none;
+    overflow-y: auto;
+    position: fixed;
+    height: 100%;
+    @include box-shadow(rgba(0, 0, 0, 0.35) 4px 0px 16px 0px);
+
+    .open & {
+      display: block;
+    }
+
+    .head-gnb {
+      display: block;
+    }
+  }
+}

@@ -1,0 +1,52 @@
+.tab-comm {
+  @include flexbox;
+  @include flex-wrap(wrap);
+
+  ul[role='tablist'] {
+    @include flexbox;
+    @include flex-wrap(wrap);
+
+    li {
+      margin-bottom: -1px;
+    }
+
+    a[aria-selected] {
+      display: block;
+      padding: $gutter - 1 $gutter * 2 $gutter;
+      border: 1px solid transparent;
+      border-top-width: 2px;
+      border-top-left-radius: $borderRadius;
+      border-top-right-radius: $borderRadius;
+      font-size: $htmlFontSize;
+      color: $muted;
+    }
+
+    a[aria-selected='true'] {
+      position: relative;
+      border-color: map-get($slate, fill) map-get($default, border) map-get($default, border);
+      font-weight: $fontWeightBold;
+      background: $white;
+      color: map-get($slate, fill);
+
+      &:after {
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 1px;
+        background: $white;
+        content: '';
+      }
+    }
+  }
+
+  .tool-tab {
+    margin-left: auto;
+  }
+}
+
+[role='tabpanel'] {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}

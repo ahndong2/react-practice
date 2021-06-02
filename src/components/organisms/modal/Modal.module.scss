@@ -1,0 +1,82 @@
+@import 'styles/_utile';
+
+/* modal */
+.visible {
+  overflow: hidden;
+}
+
+.outer {
+  @include flexbox;
+  @include justify-content(center);
+  @include align-items(center);
+  visibility: visible;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  width: 100%;
+  min-width: 320px;
+  height: 100%;
+  padding: $gutter;
+  background: rgba($black, 0.5);
+}
+
+.inner {
+  @include flexbox;
+  @include flex-direction(column);
+  width: fit-content;
+  min-width: 700px;
+  max-width: 100%;
+  max-height: 100%;
+  border: 1px solid map-get($default, border);
+  border-radius: $borderRadius;
+  background: $white;
+  @include box-shadow(0 $gutter / 2 $gutter 0 rgba($black, 0.1));
+}
+
+.head {
+  @include flexbox;
+  @include align-items(center);
+  border-bottom: 1px solid map-get($default, border);
+}
+
+.body {
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: $gutter $gutter 0;
+}
+
+.foot {
+  @include flexbox;
+  display: -ms-grid;
+  display: grid;
+  grid-column-gap: $gutter;
+  grid-auto-flow: column;
+  @include justify-content(center);
+  padding: $gutter;
+  border-top: 1px solid map-get($default, border);
+}
+
+.title {
+  display: block;
+  padding: $gutter 0 $gutter $gutter;
+  font-weight: $fontWeightBold;
+  font-size: $htmlFontSize;
+}
+
+.close {
+  @include flex(0, 0, auto);
+  margin-left: auto;
+  padding: $gutter $gutter * 2;
+  text-align: center;
+}
+
+@media only screen and (max-width: 720px) {
+  .inner {
+    min-width: 100%;
+  }
+}

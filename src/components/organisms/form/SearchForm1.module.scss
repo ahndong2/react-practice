@@ -1,0 +1,63 @@
+@import 'styles/_utile';
+
+.aside {
+  float: right;
+  position: -webkit-sticky;
+  position: sticky;
+  top: $gutter;
+  width: 310px;
+  max-width: 100%;
+  @include gutter($gutter);
+
+  &.hide {
+    width: auto;
+
+    form {
+      display: none;
+    }
+  }
+}
+
+.hide_button {
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  z-index: 10;
+  width: 43px;
+  height: 43px;
+}
+
+.show_button {
+  width: 43px;
+  height: 43px;
+  margin-bottom: $gutter;
+  border: 1px solid map-get($default, border);
+  border-radius: $borderRadius;
+  background: $white;
+}
+
+@include respond-to(lg) {
+  .aside {
+    float: none;
+    position: static;
+    width: auto;
+
+    &.hide {
+      form {
+        display: block;
+      }
+
+      .hide_button {
+        transform: rotate(90deg);
+      }
+    }
+  }
+
+  .hide_button {
+    transform: rotate(-90deg);
+  }
+
+  .show_button {
+    display: none;
+  }
+}

@@ -1,0 +1,17 @@
+.span_icon {
+  cursor: pointer;
+}
+.url {
+  max-width: 350px;
+}
+.boxWrap {
+  margin-top: 10px;
+}
+.box {
+  max-width: 300px;
+  min-height: 70px;
+  padding: 20px;
+  background-color: #fcfcfc;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+}

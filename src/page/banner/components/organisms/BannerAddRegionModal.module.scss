@@ -1,0 +1,28 @@
+@import 'styles/_utile';
+
+.button {
+  display: 'block';
+  width: 100%;
+  margin-bottom: $gutter;
+}
+
+.scroll {
+  overflow: auto;
+  width: 100%;
+  min-height: 35px;
+  max-height: 200px;
+  margin-bottom: $gutter;
+  padding-bottom: 0;
+  background: $background;
+}
+
+.item {
+  display: block;
+  width: 100%;
+  margin-bottom: $gutter;
+}
+
+.select {
+  background: #546e7a;
+  color: $white;
+}

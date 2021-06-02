@@ -1,0 +1,40 @@
+@import 'styles/_utile';
+
+.wrapper {
+  position: relative;
+}
+
+.button {
+  @include flexbox;
+  @include align-items(center);
+
+  i {
+    font-size: 10px;
+    margin-left: $gutter;
+  }
+}
+
+.content {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  min-width: 180px;
+  margin-top: 2px;
+  border: 1px solid map-get($default, border);
+  border-radius: $borderRadius;
+  background: $white;
+  @include box-shadow(0 4px 8px 0 rgba(0, 0, 0, 0.1));
+
+  a {
+    display: block;
+    padding: $gutter $gutter * 2;
+
+    &:hover {
+      background: map-get($grey, 100);
+    }
+
+    i {
+      margin-right: $gutter;
+    }
+  }
+}

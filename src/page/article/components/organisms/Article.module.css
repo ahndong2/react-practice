@@ -1,0 +1,23 @@
+.isDisplay {
+  margin: 8px 10px 10px 0;
+}
+.article_title_panel {
+  display: block;
+  flex: 1 1 auto;
+  margin: 0 10px 0 0;
+  padding: 10px 10px 0;
+  font-weight: 700;
+  font-size: 14px;
+}
+.article_txt_muted {
+  font-weight: 400;
+  color: #919191;
+}
+.imageWrap {
+  display: inline-block;
+  padding: 5px;
+}
+.image {
+  width: 50px;
+  height: 50px;
+}

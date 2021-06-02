@@ -1,0 +1,94 @@
+@import 'styles/_utile';
+
+.body {
+  background: map-get($default, fill);
+}
+
+.wrap {
+  @include flexbox;
+  margin-bottom: $gutter;
+  border-radius: $borderRadius;
+  @include box-shadow(0 4px 8px 0 rgba(0, 0, 0, 0.1));
+}
+
+.row {
+  @include flexbox;
+  @include flex-wrap(wrap);
+  @include flex(1, 1, 0%);
+  margin-left: -1px;
+}
+
+.panel {
+  margin: 0 0 0 -1px;
+  border-radius: 0;
+
+  &:first-child {
+    margin-left: 0;
+  }
+}
+
+.mid {
+  @include flex(1, 1, 0%);
+}
+
+.scroll {
+  overflow: auto;
+  height: 118px;
+}
+
+.image {
+  min-width: 112px;
+  height: 112px;
+  min-height: calc(100% - #{$gutter});
+}
+
+.inp-group {
+  select {
+    @include flex(0, 1, 0%);
+  }
+}
+
+.button {
+  position: relative;
+  z-index: 10;
+  width: 35px;
+  margin-left: -1px;
+  border: 1px solid map-get($default, border);
+  background: $white;
+  outline: 0 none;
+
+  &:hover {
+    @include box-shadow(0 0 0 35px rgba(0, 0, 0, 0.05) inset);
+  }
+
+  &:first-child {
+    margin-left: 0;
+    border-radius: $borderRadius 0 0 $borderRadius;
+  }
+
+  &:last-child {
+    border-radius: 0 $borderRadius $borderRadius 0;
+  }
+}
+
+.ghost {
+  @include opacity(0);
+}
+
+@include respond-to(lg) {
+  .row {
+    border: 1px solid map-get($default, border);
+  }
+
+  .panel {
+    @include flex(1, 0, auto);
+    max-width: 100%;
+    margin: 0;
+    border: 0 none;
+    border-top: 1px solid map-get($default, border);
+
+    &:first-child {
+      border-top: 0;
+    }
+  }
+}

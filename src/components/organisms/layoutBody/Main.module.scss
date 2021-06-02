@@ -1,0 +1,47 @@
+@import '../../../styles/utile';
+
+.main {
+  width: 100%;
+  padding: $gutter $gutter 0;
+}
+
+.title {
+  padding: $gutter;
+  border-bottom: 1px solid map-get($default, border);
+  background: $white;
+
+  h2 {
+    font-size: $htmlFontSize;
+  }
+}
+
+.path {
+  @include flexbox;
+  padding: $gutter;
+  border-bottom: 1px solid map-get($default, border);
+  background: map-get($default, fill);
+  font-size: 12px;
+  font-family: Roboto, $fontFamily;
+
+  .home {
+    font-weight: $fontWeightBold;
+
+    i {
+      margin-right: $gutter / 2;
+    }
+  }
+
+  .depth {
+    @include flexbox;
+    font-weight: $fontWeightBold;
+
+    &:before {
+      margin: 0 $gutter;
+      content: '/';
+    }
+
+    &:last-child {
+      color: $muted;
+    }
+  }
+}

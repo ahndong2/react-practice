@@ -1,0 +1,57 @@
+@import 'styles/_utile';
+
+.info {
+  margin-bottom: $gutter;
+
+  a {
+    color: map-get($warning, fill);
+  }
+}
+
+$gutter: $gutter * 2;
+
+.article {
+  @include flexbox;
+  @include flex-direction(column);
+  @include justify-content(center);
+  @include align-items(center);
+  min-height: 100%;
+}
+
+.box {
+  width: 360px;
+  min-width: fit-content;
+  max-width: 100%;
+  margin-bottom: $gutter;
+  padding: $gutter $gutter 0;
+  border: 1px solid map-get($default, border);
+  border-radius: $borderRadius;
+  background: $white;
+}
+
+.title {
+  font-size: 17px;
+  text-align: center;
+}
+
+.subtitle {
+  margin-bottom: $gutter;
+  font-family: Roboto, $fontFamily;
+  text-align: center;
+}
+
+.input {
+  margin-bottom: $gutter;
+}
+
+.label {
+  min-width: 45px;
+  color: $muted;
+}
+
+.button {
+  display: block;
+  width: 100%;
+  margin-bottom: $gutter;
+  font-weight: $fontWeightBold;
+}

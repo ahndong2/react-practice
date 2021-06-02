@@ -1,0 +1,7 @@
+.tbl_sitehome {
+  overflow: visible;
+}
+
+.tbl_sitehome tbody td {
+  background: transparent;
+}

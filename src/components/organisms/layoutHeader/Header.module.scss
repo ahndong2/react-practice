@@ -1,0 +1,106 @@
+@import 'styles/_utile';
+
+.head {
+  @include flexbox;
+  @include align-items(center);
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  width: 100%;
+  height: $headHeight + 2;
+  min-height: $headHeight + 2;
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid rgba($white, 0.1);
+  background: map-get($slate, fill);
+}
+
+.title {
+  @include flexbox;
+  @include flex(0, 0, auto);
+  width: $navWidth;
+  height: 100%;
+}
+
+.logo {
+  @include flexbox;
+  @include align-items(center);
+  height: 100%;
+  padding: $gutter $gutter * 2;
+  font-weight: $fontWeightBold;
+  font-size: $htmlFontSize;
+  color: $white;
+  white-space: nowrap;
+  letter-spacing: -1px;
+
+  small {
+    margin-left: $gutter / 2;
+  }
+}
+
+.toggle {
+  @include flexbox;
+  @include justify-content(center);
+  @include align-items(center);
+  @include flex(0, 0, auto);
+  width: $headHeight;
+  height: 100%;
+  font-size: 16px;
+  line-height: $headHeight;
+  color: $white;
+  outline: 0 none;
+
+  &:hover {
+    background: rgba($white, 0.1);
+  }
+}
+
+.tools {
+  @include flexbox;
+  @include justify-content(flex-end);
+  @include align-items(center);
+  @include flex(1, 0, auto);
+  height: 100%;
+}
+
+.user {
+  height: 100%;
+  margin-right: $gutter;
+}
+
+.button {
+  height: 100%;
+  padding: $gutter $gutter * 2;
+  font-weight: $fontWeightBold;
+  color: $white;
+
+  &:hover {
+    background: rgba($white, 0.1);
+  }
+}
+
+.divider {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: map-get($default, border);
+}
+
+@include respond-to(md) {
+  .head {
+    position: sticky;
+  }
+
+  .title {
+    width: auto;
+  }
+
+  .toggle {
+    @include order(1);
+  }
+
+  .dropdown {
+    margin-right: 0;
+  }
+}
